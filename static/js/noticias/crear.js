@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Noticia creada con éxito (simulación).")
   
       // Redirigir a la lista de noticias
-      window.location.href = "../../inicio-admin.html"
+      window.location.href = "../../templates/inicio-admin.html"
     })
   })
   
