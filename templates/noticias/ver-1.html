@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="noticia-title">Avances en inteligencia artificial - Portal de Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper para galería de imágenes -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../static/styles/common.css">
+    <link rel="stylesheet" href="../../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                <div>
+                    <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left mr-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Contenedor principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Cabecera de la noticia -->
+            <div class="relative">
+                <!-- Slideshow de imágenes -->
+                <div class="h-64 md:h-96 bg-gray-200 relative">
+                    <!-- Galería de imágenes con Swiper -->
+                    <div id="galeria-imagenes" class="h-full">
+                        <div class="swiper headerSwiper h-full">
+                            <div class="swiper-wrapper h-full">
+                                <div class="swiper-slide h-full">
+                                    <img src="https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Inteligencia artificial" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next text-white"></div>
+                            <div class="swiper-button-prev text-white"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay con tema y fecha -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <div class="flex justify-between items-center text-white">
+                            <span id="noticia-tema" class="px-3 py-1 bg-blue-600 bg-opacity-90 rounded-full text-xs font-semibold">TECNOLOGIA</span>
+                            <span id="noticia-fecha" class="text-sm">15/05/2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Título y descripción -->
+                <div class="p-6 border-b">
+                    <h1 id="noticia-titulo" class="text-3xl font-bold text-gray-800 mb-4">
+                        Avances en inteligencia artificial
+                    </h1>
+                    <p id="noticia-descripcion" class="text-lg text-gray-600 italic">
+                        Un equipo de investigadores ha desarrollado un sistema de IA capaz de resolver problemas complejos con un rendimiento similar al de expertos humanos, marcando un hito en el campo de la inteligencia artificial.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Cuerpo de la noticia -->
+                <div id="noticia-cuerpo" class="prose max-w-none mb-10">
+                    <p> En un avance que podría redefinir el futuro de la tecnología, científicos de la empresa DeepMind (parte de Google) han presentado un nuevo modelo de inteligencia artificial capaz de superar pruebas de razonamiento lógico y resolución de problemas a niveles comparables con los de profesionales humanos.</p>
+                    <p>El sistema, llamado ReasoningNet, utiliza una arquitectura innovadora que combina redes neuronales avanzadas con algoritmos de toma de decisiones, logrando un 92% de precisión en evaluaciones estándar de razonamiento abstracto. Estas pruebas incluyen resolución de acertijos matemáticos, interpretación de contextos ambiguos y planificación estratégica, áreas en las que hasta ahora las IA tenían limitaciones.</p>
+                    <p><b>"Este es un paso crucial hacia máquinas que puedan pensar de manera más similar a los humanos"</b>, explicó la Dra. Elena Torres, líder del proyecto. "No se trata solo de procesar datos, sino de entender relaciones complejas y tomar decisiones con información incompleta".</p>
+                    <p>El avance podría tener aplicaciones en campos como la medicina, donde la IA podría ayudar en diagnósticos más precisos, o en la industria, optimizando procesos logísticos con mayor autonomía. Sin embargo, también ha generado debates éticos sobre los límites del desarrollo de la inteligencia artificial y su impacto en el empleo.</p>
+                    <p>Mientras tanto, otras empresas como OpenAI y Meta han anunciado que trabajan en tecnologías similares, lo que sugiere que la competencia por crear la IA más avanzada está entrando en una nueva fase. Expertos predicen que, en los próximos años, estos sistemas podrían integrarse en herramientas cotidianas, cambiando radicalmente la forma en que interactuamos con la tecnología.</p>
+                    <p><b>El próximo desafío</b>, según los investigadores, será mejorar la capacidad de aprendizaje autónomo de estos modelos, acercándolos aún más a la versatilidad del pensamiento humano.</p>
+                </div>
+            </div>
+            
+            <!-- Pie de la noticia con acciones -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <!-- Botones de compartir (funcionalidad a implementar) -->
+                        <button class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook-f mr-1"></i> Compartir
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-400">
+                            <i class="fab fa-twitter mr-1"></i> Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../static/js/noticias/common.js"></script>
+    <script src="../../static/js/noticias/ver-common.js"></script>
+</body>
+</html>

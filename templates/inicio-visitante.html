@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portal de Noticias - Visitante</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles/common.css">
+    <link rel="stylesheet" href="../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+
+                <!-- Sección de autenticación - SOLO VISITANTE -->
+                <div class="flex items-center" id="authSection">
+                    <!-- Usuario no autenticado -->
+                    <div class="flex items-center">
+                        <a href="auth/login.html" class="flex items-center text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            <span>Iniciar sesión</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>  
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Filtros -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Filtrar Noticias</h2>
+            <form id="filtro-form" class="flex flex-wrap gap-4">
+                <div class="flex-1 min-w-[250px]">
+                    <label for="titulo" class="block text-sm font-medium text-gray-700 mb-1">Título</label>
+                    <input type="text" id="titulo" name="titulo" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex-1 min-w-[250px]">
+                    <label for="tema" class="block text-sm font-medium text-gray-700 mb-1">Tema</label>
+                    <select id="tema" name="tema" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Todos los temas</option>
+                        <option value="POLITICA">POLITICA</option>
+                        <option value="ECONOMIA">ECONOMIA</option>
+                        <option value="DEPORTES">DEPORTES</option>
+                        <option value="TECNOLOGIA">TECNOLOGIA</option>
+                        <option value="CULTURA">CULTURA</option>
+                        <option value="SOCIEDAD">SOCIEDAD</option>
+                    </select>
+                </div>
+                <div class="flex items-end w-full sm:w-auto">
+                    <button type="submit" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out">
+                        <i class="fas fa-search mr-2"></i>Buscar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Listado de noticias -->
+        <div id="noticias-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Ejemplo de noticia 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Imagen de noticia">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">TECNOLOGIA</span>
+                        <span class="text-sm text-gray-500">15/05/2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">Avances en inteligencia artificial</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Un equipo de investigadores ha desarrollado un sistema de IA capaz de resolver problemas complejos con un rendimiento similar al de expertos humanos, marcando un hito en el campo de la inteligencia artificial.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="noticias/ver-1.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Leer más <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de noticia 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1621629057099-c7cf1fb8ca1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Imagen de noticia">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">ECONOMIA</span>
+                        <span class="text-sm text-gray-500">14/05/2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">Crisis en el mercado financiero</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Los mercados bursátiles registran fuertes caídas tras el aumento de tasas de interés y señales de desaceleración económica, generando incertidumbre entre inversionistas.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="noticias/ver-2.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Leer más <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de noticia 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Imagen de noticia">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">DEPORTES</span>
+                        <span class="text-sm text-gray-500">13/05/2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">Maratón vecinal en el parque</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Con gran participación familiar y ambiente festivo, se realizó la 5ta edición de la maratón barrial, promoviendo vida saludable y la unión del vecindario.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="noticias/ver-3.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Leer más <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de noticia 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1743119638006-a01d4625745d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Imagen de noticia">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">CULTURA</span>
+                        <span class="text-sm text-gray-500">13/05/2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">Nueva muestra de arte local</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">La cultura florece en el centro comunitario. 15 artistas emergentes exponen obras que fusionan técnicas tradicionales con innovación digital en una exposición gratuita que promete ser el evento cultural de la temporada.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="noticias/ver-4.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Leer más <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+
+        <!-- Ejemplo de noticia 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div class="h-48 bg-gray-200 relative">
+                <img src="https://images.unsplash.com/photo-1578307985320-34b61a66c195?q=80&w=2078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Imagen de noticia">
+            </div>
+            <div class="p-5">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">SALUD</span>
+                    <span class="text-sm text-gray-500">13/05/2023</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">Campaña de vacunación gratuita</h3>
+                <p class="text-gray-600 mb-4 line-clamp-3">El Ministerio de Salud local anunció la disponibilidad de dosis contra influenza, COVID-19 y neumococo en todos los centros públicos con horarios extendidos hasta agosto.</p>
+                <div class="flex justify-between items-center">
+                    <a href="noticias/ver-5.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                        Leer más <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Paginación simplificada -->
+    <div class="mt-8 flex justify-center">
+        <nav class="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 rounded-l-md opacity-50 cursor-not-allowed">
+                <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="#" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium bg-blue-50 border-blue-500 text-blue-600 z-10">1</a>
+                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 rounded-r-md hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* common.css: estilos compartidos por todos los templates */
+body {
+    background-color: #f3f4f6; /* bg-gray-100 */
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111827; /* text-gray-800 */
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.text-blue-600 { color: #2563eb; }
+.text-blue-800 { color: #1e40af; }
+.bg-white { background: #fff; }
+.bg-blue-600 { background: #2563eb; }
+.bg-gray-50 { background: #f9fafb; }
+.bg-gray-200 { background: #e5e7eb; }
+.bg-gray-800 { background: #1f2937; }
+.text-gray-800 { color: #1f2937; }
+.text-gray-700 { color: #374151; }
+.text-gray-600 { color: #4b5563; }
+.text-red-500 { color: #ef4444; }
+.text-green-600 { color: #16a34a; }
+
+.font-bold { font-weight: bold; }
+.font-medium { font-weight: 500; }
+
+a { color: #2563eb; text-decoration: underline; }
+a:hover { color: #1e40af; }
+
+/* Botones generales */
+button, .btn {
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+/* Utilidades para formularios */
+input, textarea, select {
+    border-radius: 0.375rem;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px #2563eb33;
+}
+
+/* Utilidades de espaciado */
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+/* Utilidades de grid */
+.grid { display: grid; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* Utilidades de transición */
+.transition { transition: all 0.3s ease-in-out; }
+
+/* Utilidades de sombra */
+.shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.shadow-lg { box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+
+/* Otros estilos comunes */
+.list-disc { list-style-type: disc; }
+.list-decimal { list-style-type: decimal; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="noticia-title">Campaña de vacunación gratuita - Portal de Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper para galería de imágenes -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../static/styles/common.css">
+    <link rel="stylesheet" href="../../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                <div>
+                    <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left mr-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Contenedor principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Cabecera de la noticia -->
+            <div class="relative">
+                <!-- Slideshow de imágenes -->
+                <div class="h-64 md:h-96 bg-gray-200 relative">
+                    <!-- Galería de imágenes con Swiper -->
+                    <div id="galeria-imagenes" class="h-full">
+                        <div class="swiper headerSwiper h-full">
+                            <div class="swiper-wrapper h-full">
+                                <div class="swiper-slide h-full">
+                                    <img src="https://images.unsplash.com/photo-1578307985320-34b61a66c195?q=80&w=2078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Campaña de vacunación" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next text-white"></div>
+                            <div class="swiper-button-prev text-white"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay con tema y fecha -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <div class="flex justify-between items-center text-white">
+                            <span id="noticia-tema" class="px-3 py-1 bg-blue-600 bg-opacity-90 rounded-full text-xs font-semibold">SALUD</span>
+                            <span id="noticia-fecha" class="text-sm">13/05/2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Título y descripción -->
+                <div class="p-6 border-b">
+                    <h1 id="noticia-titulo" class="text-3xl font-bold text-gray-800 mb-4">
+                        Campaña de vacunación gratuita
+                    </h1>
+                    <p id="noticia-descripcion" class="text-lg text-gray-600 italic">
+                        El Ministerio de Salud local anunció la disponibilidad de dosis contra influenza, COVID-19 y neumococo en todos los centros públicos con horarios extendidos hasta agosto.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Cuerpo de la noticia -->
+                <div id="noticia-cuerpo" class="prose max-w-none mb-10">
+                    <p>A partir de este lunes 10 de junio, todos los centros de salud municipales y hospitales públicos de la ciudad contarán con stock garantizado de vacunas para la campaña de invierno, según confirmó la Secretaría de Salud en conferencia de prensa.</p>
+                    <p><b>Vacunas disponibles:</b></p>
+                    <p>Influenza estacional (para grupos de riesgo)</p>
+                    <p>Refuerzos COVID-19 (para mayores de 12 años)</p>
+                    <p>Antineumocócica (adultos mayores y pacientes crónicos)</p>
+                    <p>Calendario regular (para niños y adolescentes)</p>
+                    <p><b>Novedades:</b></p>
+                    <p>✅ Horarios ampliados: Atención de 8 a 20 hs en 15 centros estratégicos</p>
+                    <p>✅ Puestos móviles: Vacunación en plazas y estaciones de tren (consultar cronograma)</p>
+                    <p>✅ Sin turno previo: Solo presentar DNI y carnet de vacunación</p>
+                    <p><b>Grupos prioritarios:</b></p>
+                    <p><li>Mayores de 65 años</li></p>
+                    <p><li>Embarazadas</li></p>
+                    <p><li>Personal de salud</li></p>
+                    <p><li>Personas con enfermedades crónicas (presentar certificado médico)</li></p>
+                    <p>'Queremos alcanzar el 80% de cobertura antes del pico invernal', explicó la Dra. Laura Mendez, directora de Epidemiología, quien recordó que las dosis son gratuitas en todos los centros públicos.</p>
+                    <p><b>Recomendaciones:</b></p>
+                    <p><li>Llevar carnet de vacunación</li></p>
+                    <p><li>Usar barbijo en espacios cerrados</li></p>
+                    <p><li>No concurrir con síntomas febriles</li></p>
+                    <p><b>Centros con mayor capacidad:</b></p>
+                    <p><li>Hospital Central (Av. San Martín 2500)</li></p>
+                    <p><li>Centro de Salud N°3 (Belgrano 720)</li></p>
+                    <p><li>Unidad Sanitaria Noroeste (Ruta 8 km 12)</li></p>
+                    <p>Para consultar el centro más cercano con disponibilidad, los vecinos pueden ingresar a www.saludmunicipio.gob.ar/vacunacion o llamar al 147.</p>
+                </div>
+            </div>
+            
+            <!-- Pie de la noticia con acciones -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <!-- Botones de compartir (funcionalidad a implementar) -->
+                        <button class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook-f mr-1"></i> Compartir
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-400">
+                            <i class="fab fa-twitter mr-1"></i> Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../static/js/noticias/common.js"></script>
+    <script src="../../static/js/noticias/ver-common.js"></script>
+</body>
+</html>

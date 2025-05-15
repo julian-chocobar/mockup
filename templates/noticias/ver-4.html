@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="noticia-title">Nueva muestra de arte local - Portal de Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper para galería de imágenes -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../static/styles/common.css">
+    <link rel="stylesheet" href="../../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                <div>
+                    <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left mr-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Contenedor principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Cabecera de la noticia -->
+            <div class="relative">
+                <!-- Slideshow de imágenes -->
+                <div class="h-64 md:h-96 bg-gray-200 relative">
+                    <!-- Galería de imágenes con Swiper -->
+                    <div id="galeria-imagenes" class="h-full">
+                        <div class="swiper headerSwiper h-full">
+                            <div class="swiper-wrapper h-full">
+                                <div class="swiper-slide h-full">
+                                    <img src="https://images.unsplash.com/photo-1743119638006-a01d4625745d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Muestra de arte" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next text-white"></div>
+                            <div class="swiper-button-prev text-white"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay con tema y fecha -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <div class="flex justify-between items-center text-white">
+                            <span id="noticia-tema" class="px-3 py-1 bg-blue-600 bg-opacity-90 rounded-full text-xs font-semibold">CULTURA</span>
+                            <span id="noticia-fecha" class="text-sm">13/05/2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Título y descripción -->
+                <div class="p-6 border-b">
+                    <h1 id="noticia-titulo" class="text-3xl font-bold text-gray-800 mb-4">
+                        Nueva muestra de arte local
+                    </h1>
+                    <p id="noticia-descripcion" class="text-lg text-gray-600 italic">
+                        La cultura florece en el centro comunitario. 15 artistas emergentes exponen obras que fusionan técnicas tradicionales con innovación digital en una exposición gratuita que promete ser el evento cultural de la temporada.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Cuerpo de la noticia -->
+                <div id="noticia-cuerpo" class="prose max-w-none mb-10">
+                    <p>El Centro Cultural Borges inauguró anoche 'Raíces Contemporáneas', una impactante muestra que reúne el trabajo de 15 talentos locales seleccionados por un jurado internacional. La exposición, que estará abierta hasta el 15 de noviembre, ya ha sido catalogada como 'un diálogo entre la herencia cultural y las nuevas expresiones artísticas' por la crítica especializada.</p>
+                    <p><b>Lo más destacado de la muestra:</b></p>
+                    <p>🎨 <b>Instalación 'Memoria Viva' de Valeria Sosa:</b></p>
+                    <p><li>Combina bordado tradicional con proyecciones holográficas</li></p>
+                    <p><li>Representa historias de inmigrantes de la región</li></p>
+                    <p>🖌️ <b>Colección 'Pixeles Ancestrales' del colectivo Arte Digital:</b></p>
+                    <p><li>Retratos de ancianos de la comunidad convertidos en NFT interactivos</li></p>
+                    <p><li>Los visitantes pueden escanear códigos QR para escuchar sus relatos</li></p>
+                    <p>🖼️ <b>Mural colaborativo en vivo:</b></p>
+                    <p><li>Los asistentes pueden agregar su aporte durante todo el mes</li></p>
+                    <p><li>Será donado al hospital pediátrico</li></p>
+                    <p><b>Datos clave:</b></p>
+                    <p>📅 <i>Hasta el 15/11</i> | 🕒 Martes a domingo de 15 a 21 hs</p>
+                    <p>📍 Sala Principal del Centro Cultural Borges (Viamonte 525, CABA)</p>
+                    <p>🎟️ Entrada libre con reserva previa en cultura.municipio.com</p>
+                    <p> <i>"Esta exposición demuestra que nuestra ciudad es un semillero de artistas que reinventan nuestra identidad"</i>, destacó el Secretario de Cultura, Luciano Morales, durante la apertura que contó con más de 300 asistentes.</p>
+                    <p>La muestra incluye talleres gratuitos los fines de semana:</p>
+                    <p><li>Técnicas mixtas para jóvenes (sábados 16 hs)</li></p>
+                    <p><li>Arte digital para adultos mayores (domingos 10 hs)</li></p>
+                    <p><b>Próximamente:</b> Los tres artistas más destacados viajarán a representar la provincia en la Bienal Internacional de Arte Emergente en Barcelona.</p>
+                </div>
+            </div>
+            
+            <!-- Pie de la noticia con acciones -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <!-- Botones de compartir (funcionalidad a implementar) -->
+                        <button class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook-f mr-1"></i> Compartir
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-400">
+                            <i class="fab fa-twitter mr-1"></i> Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../static/js/noticias/common.js"></script>
+    <script src="../../static/js/noticias/ver-common.js"></script>
+</body>
+</html>

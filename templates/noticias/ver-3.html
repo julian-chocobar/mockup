@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="noticia-title">Maratón vecinal en el parque - Portal de Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper para galería de imágenes -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../static/styles/common.css">
+    <link rel="stylesheet" href="../../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                <div>
+                    <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left mr-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Contenedor principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Cabecera de la noticia -->
+            <div class="relative">
+                <!-- Slideshow de imágenes -->
+                <div class="h-64 md:h-96 bg-gray-200 relative">
+                    <!-- Galería de imágenes con Swiper -->
+                    <div id="galeria-imagenes" class="h-full">
+                        <div class="swiper headerSwiper h-full">
+                            <div class="swiper-wrapper h-full">
+                                <div class="swiper-slide h-full">
+                                    <img src="https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maratón vecinal" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide h-full">
+                                    <img src="https://plus.unsplash.com/premium_photo-1663090417989-b399378d45ac?q=80&w=1483&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maratón vecinal adicional" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next text-white"></div>
+                            <div class="swiper-button-prev text-white"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay con tema y fecha -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <div class="flex justify-between items-center text-white">
+                            <span id="noticia-tema" class="px-3 py-1 bg-blue-600 bg-opacity-90 rounded-full text-xs font-semibold">DEPORTES</span>
+                            <span id="noticia-fecha" class="text-sm">13/05/2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Título y descripción -->
+                <div class="p-6 border-b">
+                    <h1 id="noticia-titulo" class="text-3xl font-bold text-gray-800 mb-4">
+                        Maratón vecinal en el parque
+                    </h1>
+                    <p id="noticia-descripcion" class="text-lg text-gray-600 italic">
+                        Con gran participación familiar y ambiente festivo, se realizó la 5ta edición de la maratón barrial, promoviendo vida saludable y la unión del vecindario.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Cuerpo de la noticia -->
+                <div id="noticia-cuerpo" class="prose max-w-none mb-10">
+                    <p>El Parque Central fue escenario este domingo de una vibrante Maratón Vecinal que reunió a más de 500 participantes de todas las edades en un evento que combinó deporte, salud y espíritu comunitario.</p>
+                    <p>La competencia, organizada por la Asociación de Vecinos Activos, ofreció tres categorías:</p>
+                    <p><li>3K familiar (con disfraces y mascotas)</li></p>
+                    <p><li>5K competitiva</li></p>
+                    <p><li>1K infantil (para niños de 5 a 12 años)</li></p>
+                    <p>Lo más destacado:</p>
+                    <p>✔ El ganador absoluto fue Martín Rojas (24), vecino del barrio, con un tiempo de 17:32 en 5K</p>
+                    <p>✔ Rocío Méndez (9) emocionó al cruzar la meta en silla de ruedas con ayuda de sus compañeros del colegio</p>
+                    <p>✔ Stands de nutrición y primeros auxilios brindaron controles gratuitos</p>
+                    <p>✔ La banda local 'Los de la Esquina' animó la llegada con música en vivo</p>
+                    <p>No se trataba de competir sino de compartir. Vi abuelos, padres con coches de bebé y hasta perros corriendo juntos", comentó Laura Torres, una de las organizadoras.</p>
+                    <p>El evento cerró con una feria saludable donde emprendedores locales ofrecieron frutas, jugos naturales y artesanías. Los fondos recaudados ($1.2 millones) serán destinados a renovar el gimnasio al aire libre del parque.</p>
+                    <p><b>Próximo desafío:</b> Los organizadores anunciaron que para octubre planean una 'Carrera Nocturna con Luces LED', buscando repetir el éxito de esta jornada que ya se consolida como tradición barrial.</p>
+                </div>
+                
+                <!-- Ubicación (si existe) -->
+                <div id="noticia-ubicacion" class="border-t pt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Ubicación</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Información de la ubicación -->
+                        <div class="md:col-span-1">
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-medium text-gray-700 mb-2">Dirección:</h4>
+                                <p id="noticia-direccion" class="text-gray-700">
+                                    Av. Infanta Isabel 110, CABA
+                                </p>
+                                
+                                <h4 class="font-medium text-gray-700 mb-2">Coordenadas:</h4>
+                                <p class="text-gray-600">
+                                    <span class="block" id="noticia-latitud">Latitud: -34.57333333</span>
+                                    <span class="block" id="noticia-longitud">Longitud: -58.41472222</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Mapa (placeholder para Leaflet) -->
+                        <div class="md:col-span-2">
+                            <div id="map" class="h-64 bg-gray-200 rounded-lg border border-gray-300 flex items-center justify-center">
+                                <div class="text-center p-4" id="map-placeholder">
+                                    <i class="fas fa-map-marker-alt text-3xl text-gray-400 mb-2"></i>
+                                    <div class="text-gray-600">Cargando mapa...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pie de la noticia con acciones -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <!-- Botones de compartir (funcionalidad a implementar) -->
+                        <button class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook-f mr-1"></i> Compartir
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-400">
+                            <i class="fab fa-twitter mr-1"></i> Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../static/js/noticias/common.js"></script>
+    <script src="../../static/js/noticias/ver-common.js"></script>
+    <script src="../../static/js/noticias/ver-3.js"></script>
+</body>
+</html>

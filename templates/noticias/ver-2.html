@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="noticia-title">Crisis en el mercado financiero - Portal de Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper para galería de imágenes -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../../static/styles/common.css">
+    <link rel="stylesheet" href="../../static/styles/noticias.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                <div>
+                    <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left mr-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Contenedor principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Cabecera de la noticia -->
+            <div class="relative">
+                <!-- Slideshow de imágenes -->
+                <div class="h-64 md:h-96 bg-gray-200 relative">
+                    <!-- Galería de imágenes con Swiper -->
+                    <div id="galeria-imagenes" class="h-full">
+                        <div class="swiper headerSwiper h-full">
+                            <div class="swiper-wrapper h-full">
+                                <div class="swiper-slide h-full">
+                                    <img src="https://images.unsplash.com/photo-1621629057099-c7cf1fb8ca1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mercado financiero" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next text-white"></div>
+                            <div class="swiper-button-prev text-white"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay con tema y fecha -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <div class="flex justify-between items-center text-white">
+                            <span id="noticia-tema" class="px-3 py-1 bg-blue-600 bg-opacity-90 rounded-full text-xs font-semibold">ECONOMIA</span>
+                            <span id="noticia-fecha" class="text-sm">14/05/2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Título y descripción -->
+                <div class="p-6 border-b">
+                    <h1 id="noticia-titulo" class="text-3xl font-bold text-gray-800 mb-4">
+                        Crisis en el mercado financiero
+                    </h1>
+                    <p id="noticia-descripcion" class="text-lg text-gray-600 italic">
+                        Los mercados bursátiles registran fuertes caídas tras el aumento de tasas de interés y señales de desaceleración económica, generando incertidumbre entre inversionistas.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Cuerpo de la noticia -->
+                <div id="noticia-cuerpo" class="prose max-w-none mb-10">
+                    <p>Una ola de pesimismo recorre los mercados financieros globales luego de que los principales índices bursátiles sufrieran sus peores pérdidas en meses, impulsados por el temor a una recesión económica y el endurecimiento de las políticas monetarias de los bancos centrales.</p>
+                    <p>El Dow Jones cayó un 3.1%, el S&P 500 un 3.8% y el Nasdaq se desplomó 4.5%, afectado especialmente por la baja en acciones tecnológicas. En Europa, el IBEX 35 (España) retrocedió un 2.7%, mientras que el DAX (Alemania) y el CAC 40 (Francia) perdieron más del 3%. En América Latina, las bolsas de Brasil y México también cerraron en rojo.</p>
+                    <h3>Causas de la crisis</h3>
+                    <p><b>Subida agresiva de tasas:</b> La Reserva Federal (Fed) elevó los tipos de interés en 0.75%, la mayor alza en casi 30 años, para combatir la inflación.</p>
+                    <p><b>Advertencias de recesión:</b> El Banco Mundial y el FMI recortaron sus previsiones de crecimiento global, señalando riesgos por la guerra en Ucrania y la crisis energética.</p>
+                    <p><b>Fuga hacia activos seguros:</b> Los bonos del Tesoro estadounidense y el dólar se fortalecieron, mientras que las criptomonedas, como Bitcoin, cayeron más del 10%.</p>
+                    <h3>Reacciones</h3>
+                    <p><b>Inversionistas en alerta:</b> "El mercado está pricing una contracción económica; la volatilidad seguirá", advirtió un analista de JPMorgan.</p>
+                    <p><b>Gobiernos bajo presión:</b> El presidente de EE.UU., Joe Biden, aseguró que "la economía es resiliente", pero admitió "tiempos difíciles".</p>
+                    <p><b>BCE y Fed en la mira:</b> Los bancos centrales enfrentan el dilema de controlar la inflación sin ahogar el crecimiento.</p>
+                    <p>¿Qué viene? Los expertos anticipan más turbulencias en las próximas semanas, con atención puesta en los informes de empleo y resultados empresariales. Mientras tanto, los pequeños ahorradores son los más expuestos a esta tormenta financiera.</p>
+                </div>
+            </div>
+            
+            <!-- Pie de la noticia con acciones -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <!-- Botones de compartir (funcionalidad a implementar) -->
+                        <button class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook-f mr-1"></i> Compartir
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-400">
+                            <i class="fab fa-twitter mr-1"></i> Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../static/js/noticias/common.js"></script>
+    <script src="../../static/js/noticias/ver-common.js"></script>
+</body>
+</html>
