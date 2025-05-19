@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portal de Noticias - Mapa - Visitante</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <!-- Leaflet para mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles/mapa.css">
+    <link rel="stylesheet" href="../static/styles/noticias.css">
+</head>
+
+<body class="bg-gray-500 min-h-screen">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Portal de Noticias</h1>
+                    <!-- Sección de volver al inicio - SOLO VISITANTE-->
+                    <div class="flex items-center">
+                        <a href="inicio-visitante.html"
+                            class="no-underline text-lg font-semibold text-gray-600 mb-0 hover:text-blue-800 hover:underline">
+                            <span>Volver al inicio</span>
+                        </a>
+                    </div>
+
+                <!-- Sección de autenticación - SOLO VISITANTE -->
+                <div class="flex items-center" id="authSection">
+                    <!-- Usuario no autenticado -->
+                    <div class="flex items-center">
+                        <a href="auth/login.html" class="flex items-center text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            <span>Iniciar sesión</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-8 py-2 justify-center gap-5">
+        <div id="AnuncioIzq" class="bg-white rounded-lg shadow-md overflow-hidden flex justify-center" >
+            <img id="randomImage" src="anuncioIzq" alt="Anuncio" class="w-full object-contain">
+        </div>
+
+        <div id="map" class="bg-white rounded-lg shadow-md overflow-hidden flex-grow map-container">
+        </div>
+
+        <div id="AnuncioDer" class="bg-white rounded-lg shadow-md overflow-hidden flex justify-center">
+            <img id="randomImage1" src="anuncioIzq" alt="Anuncio" class="w-full object-contain">
+        </div>
+
+        <script src="../static/js/noticias/anuncios.js"></script>
+        <script type="module" src="../static/js/noticias/mapaGeneral.js"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+    </main>
+</body>
+
+</html>

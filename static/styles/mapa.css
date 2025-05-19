@@ -1,15 +1,43 @@
-/* common.css: estilos compartidos por todos los templates */
+/* mapa.css: estilos específicos para templates de mapa general*/
 body {
+    display:flex;
+    flex-direction:column;
     background-color: #f3f4f6; /* bg-gray-100 */
     min-height: 100vh;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin:0;
+}
+header{
+    width: 100%;
+}
+main{
+    flex-grow: 0;
+    display:flex; /* Quiero que la dirección del Flexbox sea horizontal*/
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #111827; /* text-gray-800 */
     font-weight: 600;
 }
+/*Indicará el tamaño del mapa*/
+#map{
+    height: 85vh ;
+    width: 100% ;
+    border-radius:0.5rem;
+}
+#AnuncioIzq,
+#AnuncioDer {
+    /* Evita alturas fijas grandes */
+    max-height: 85vh; /* Ejemplo de altura máxima relativa */
+    width: 40vh;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem; /* Espacio entre elementos */
+}
 
+.map-container {
+    height: 85vh; /* Ajusta este valor */
+    width: 100%;
+}
 .container {
     max-width: 1200px;
     margin-left: auto;
