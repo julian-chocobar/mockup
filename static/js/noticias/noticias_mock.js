@@ -1,3 +1,4 @@
+//Noticias de prueba para el prototipo
 export const mockNoticiasUbicacion = [
   {
     id: 1,

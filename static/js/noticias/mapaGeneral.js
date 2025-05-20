@@ -1,18 +1,19 @@
-import { mockNoticiasUbicacion } from "./noticias_mock.js";
+import { mockNoticiasUbicacion } from "./noticias_mock.js"; //Importo las noticias del js donde estan todas las del mock
 document.addEventListener('DOMContentLoaded', function () {
 
     // 1. Obtener el mapa
     const mapaObjeto = document.getElementById('map');
 
-    // 2. Verificar que el elemento del mapa existe
+    // 2. Verificar que el mapa existe
     if (mapaObjeto) {
-        // 3. Inicializar el mapa de Leaflet
-        const mapa = L.map('map').setView([-34.6037, -58.3816], 10); // Coordenadas de Buenos Aires y zoom inicial
+        // 3. Inicializar el mapa 
+        const mapa = L.map('map').setView([-34.6037, -58.3816], 10); // Coordenadas de Buenos Aires
 
-        // 4. Agregar una capa de tiles (OpenStreetMap)
+        // 4. Agregar una capa de tiles para poder ver las calles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(mapa);        
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(mapa);
 
         añadirMarcadoresNoticias(mapa);
 

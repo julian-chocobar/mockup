@@ -2,7 +2,7 @@ const hayMapa = document.getElementById('map');
 let imagenes = [];
 //Cargar anuncios
 if(!hayMapa){
-    imagenes = ["https://i.postimg.cc/j5pKZSSJ/Anuncio1.png","https://i.postimg.cc/nctpmrWy/Anuncio2.png","https://i.postimg.cc/DwvhCDn5/Anuncio3.png"];}
+    imagenes = ["https://i.postimg.cc/Z5J57Z5q/Anuncio1.png","https://i.postimg.cc/W30JnGMx/Anuncio2.png","https://i.postimg.cc/fTXDxTXF/Anuncio3.png","https://i.postimg.cc/SxhMzfDz/Anuncio4.png"];}
 else{
     imagenes = ["https://i.postimg.cc/ncnQpQ53/Anuncio-V1.png","https://i.postimg.cc/Z5GbYGnJ/Anuncio-V2.png","https://i.postimg.cc/BQysNrx2/Anuncio-V3.png"];
 }
