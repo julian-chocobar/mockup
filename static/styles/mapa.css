@@ -21,15 +21,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*Indicará el tamaño del mapa*/
 #map{
-    height: 85vh ;
+    height: 95vh ;
     width: 100% ;
     border-radius:0.5rem;
 }
 #AnuncioIzq,
 #AnuncioDer {
     /* Evita alturas fijas grandes */
-    max-height: 85vh; /* Ejemplo de altura máxima relativa */
-    width: 40vh;
+    max-height: 95vh; /* Ejemplo de altura máxima relativa */
+    width: 35vh;
     border-radius: 0.5rem;
     margin-bottom: 1rem; /* Espacio entre elementos */
 }
