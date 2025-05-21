@@ -51,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
 .shadow-md {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+/*Encabezado*/
+.bg-encabezado{ background: #090735;}
+.text-letraEncabezado{color:#e5e7eb}
+.text-Hipervinculo{color: #2563eb}
 
 .text-blue-600 { color: #2563eb; }
 .text-blue-800 { color: #1e40af; }
