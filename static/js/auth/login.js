@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+
+
   const infoDiv = document.createElement("div")
   infoDiv.className = "mt-6 text-center text-sm text-gray-600"
   infoDiv.innerHTML = `
