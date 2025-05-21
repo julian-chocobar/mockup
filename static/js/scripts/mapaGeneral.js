@@ -29,9 +29,7 @@ function añadirMarcadoresNoticias(mapa) {
         if (noticia.ubicacion && noticia.ubicacion.latitud && noticia.ubicacion.longitud) {
             const marker = L.marker([noticia.ubicacion.latitud, noticia.ubicacion.longitud]).addTo(mapa);
 
-            /*Formato HTML para la preview de la noticia*/
-            const contenidoPopup = `<div> <b>${noticia.titulo}</b><br><img src="${noticia.fotos[0].url}" alt="${noticia.fotos[0].descripcion}" style="width:150px; height:auto;"><br><a href="../templates/noticias/ver-${noticia.id}.html">Ver más</a></div>`;
-            marker.bindPopup(contenidoPopup);
+            marker.bindPopup(`<div> <b>${noticia.titulo}</b><br><img src="${noticia.fotos[0].url}" alt="${noticia.fotos[0]}" style="width:150px; height:auto;"><br><a href="../templates/noticias/ver-${noticia.id}.html">Ver más</a></div>`);
         }
     };
 }
