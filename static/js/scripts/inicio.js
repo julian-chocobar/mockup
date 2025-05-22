@@ -1,7 +1,7 @@
 // --- Configuración ---
 import { mockNoticiasUbicacion } from "./noticias_mock.js";
 
-document.addEventListener('DOMContentLoaded', function () { //Al buscar componentes del html necesito que ya estén cargados para que no se trabaje con objetos null
+document.addEventListener('DOMContentLoaded', function () {
   const noticiasList = document.getElementById("noticias-list")
   const filtroForm = document.getElementById("filtro-form")
   const tituloInput = document.getElementById("titulo")
@@ -24,11 +24,9 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
     }
   }
 
-
   // Fetch y renderizado de noticias
   async function cargarNoticias(page = 0) {
     try {
-
       const titulo = tituloInput.value
       const tema = temaSelect.value
 
@@ -56,15 +54,12 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
         noticiasList.innerHTML = ""
         noNoticiasDiv.classList.remove("hidden")
         paginationNav.innerHTML = ""
-
       } else {
         noNoticiasDiv?.classList.add("hidden")
         renderNoticias(mockData.content)
         renderPaginacion(mockData)
       }
-
     } catch (error) {
-      //console.error("Error al cargar noticias:", error)
       noticiasList.innerHTML =
         '<div class="col-span-full text-center p-8 bg-red-50 text-red-600 rounded-lg">No hay noticias con la búsqueda ingresada.</div>'
     }
@@ -76,17 +71,6 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
       const div = document.createElement("div")
       div.className =
         "bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
-
-      // Obtener el usuario actual del localStorage
-      let usuarioActual = null
-      const mockUserJson = localStorage.getItem("mockUser")
-      if (mockUserJson) {
-        try {
-          usuarioActual = JSON.parse(mockUserJson)
-        } catch (e) {
-          console.error("Error al parsear usuario mock:", e)
-        }
-      }
 
       div.innerHTML = `
       <div class="h-48 bg-gray-200 relative">
@@ -108,8 +92,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
           <a href="../templates/noticias/ver-${noticia.id}.html" class="text-blue-600 hover:text-blue-800 font-medium">
             Leer más <i class="fas fa-arrow-right ml-1"></i>
           </a>
-          <!-- Si es admin, mostrar botón eliminar -->
-          <button class="text-red-600 hover:text-red-800 eliminar-btn" data-id="${noticia.id}" ${usuarioActual?.rol === "ADMINISTRADOR" ? "" : 'style="display:none"'}>
+          <button class="text-red-600 hover:text-red-800 eliminar-btn" data-id="${noticia.id}">
             <i class="fas fa-trash"></i>
           </button>
         </div>
@@ -124,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
         const id = this.getAttribute("data-id")
         if (confirm(`¿Está seguro que desea eliminar la noticia #${id}?`)) {
           alert("Noticia eliminada (simulación)")
-          // En un mock, simplemente recargamos la página
           cargarNoticias(paginaActual)
         }
       })
@@ -134,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
   function renderPaginacion(data) {
     paginationNav.innerHTML = ""
     if (data.totalPages <= 1) return
+
     // Botón anterior
     const prev = document.createElement("a")
     prev.className = `relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 rounded-l-md ${data.first ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-50"}`
@@ -147,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
       }
     }
     paginationNav.appendChild(prev)
+
     // Números de página (máx 5)
     for (let i = 0; i < Math.min(data.totalPages, 5); i++) {
       const pageBtn = document.createElement("a")
@@ -160,24 +144,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
       }
       paginationNav.appendChild(pageBtn)
     }
-    // ... y última página si hay más de 5
-    if (data.totalPages > 5) {
-      const dots = document.createElement("span")
-      dots.className =
-        "relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"
-      dots.textContent = "..."
-      paginationNav.appendChild(dots)
-      const lastBtn = document.createElement("a")
-      lastBtn.className = `relative inline-flex items-center px-4 py-2 border text-sm font-medium ${data.number === data.totalPages - 1 ? "bg-blue-50 border-blue-500 text-blue-600 z-10" : "bg-white border-gray-300 text-gray-500 hover:bg-gray-50"}`
-      lastBtn.textContent = data.totalPages
-      lastBtn.href = "#"
-      lastBtn.onclick = (e) => {
-        e.preventDefault()
-        paginaActual = data.totalPages - 1
-        cargarNoticias(paginaActual)
-      }
-      paginationNav.appendChild(lastBtn)
-    }
+
     // Botón siguiente
     const next = document.createElement("a")
     next.className = `relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 rounded-r-md ${data.last ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-50"}`
@@ -201,9 +168,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
   }
 
   // Inicializar
-  document.addEventListener("DOMContentLoaded", () => {
-    initAutenticacion()
-    cargarTemas()
-    cargarNoticias()
-  })
+  initAutenticacion()
+  cargarTemas()
+  cargarNoticias()
 })
