@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
         <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">${noticia.titulo}</h3>
         <p class="text-gray-600 mb-4 line-clamp-3">${noticia.descripcion}</p>
         <div class="flex justify-between items-center">
-          <a href="ver-${noticia.id}.html" class="text-blue-600 hover:text-blue-800 font-medium">
+          <a href="./templates/noticias/ver-${noticia.id}.html" class="text-blue-600 hover:text-blue-800 font-medium">
             Leer más <i class="fas fa-arrow-right ml-1"></i>
           </a>
           <!-- Si es admin, mostrar botón eliminar -->
