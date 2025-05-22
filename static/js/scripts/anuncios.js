@@ -4,7 +4,7 @@ let imagenes = [];
 if(!hayMapa){
     imagenes = ["https://i.postimg.cc/Z5J57Z5q/Anuncio1.png","https://i.postimg.cc/W30JnGMx/Anuncio2.png","https://i.postimg.cc/fTXDxTXF/Anuncio3.png","https://i.postimg.cc/SxhMzfDz/Anuncio4.png"];}
 else{
-    imagenes = ["https://i.postimg.cc/26YBVYJJ/Anuncio-V1.png","https://i.postimg.cc/90P3CvKc/Anuncio-V2.png","https://i.postimg.cc/Hnh1nQ3L/Anuncio-V3.png"];
+    imagenes = ["https://i.postimg.cc/26YBVYJJ/Anuncio-V1.png","https://i.postimg.cc/Zq5qhrQf/Anuncio-V2.png","https://i.postimg.cc/3x7bbWvJ/Anuncio-V3.png", "https://i.postimg.cc/RZ64cKF8/Anuncio-V4.png"];
 }
 
 //imagenes a cambiar
