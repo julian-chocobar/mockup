@@ -1,5 +1,6 @@
 // --- Configuración ---
 import { mockNoticiasUbicacion } from "./noticias_mock.js";
+
 document.addEventListener('DOMContentLoaded', function () { //Al buscar componentes del html necesito que ya estén cargados para que no se trabaje con objetos null
   const noticiasList = document.getElementById("noticias-list")
   const filtroForm = document.getElementById("filtro-form")
@@ -12,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
   const size = 10
 
   // Importar funciones comunes
-  const { TEMAS, cargarTemasEnSelect, initAutenticacion } = window.NoticiasCommon
-
+  const {TEMAS, cargarTemasEnSelect, initAutenticacion } = window.NoticiasCommon
 
   // Cargar temas usando la función común
   async function cargarTemas() {
