@@ -60,13 +60,17 @@ document.addEventListener('DOMContentLoaded', function () {
         renderPaginacion(mockData)
       }
     } catch (error) {
-      noticiasList.innerHTML =
-        '<div class="col-span-full text-center p-8 bg-red-50 text-red-600 rounded-lg">No hay noticias con la búsqueda ingresada.</div>'
+      noticiasList.innerHTML = ""
+      noNoticiasDiv.classList.remove("hidden")
+      paginationNav.innerHTML = ""
     }
   }
 
   function renderNoticias(noticias) {
     noticiasList.innerHTML = ""
+    // Verificar si estamos en la vista de administrador
+    const isAdminView = window.location.pathname.includes('inicio-admin.html')
+
     noticias.forEach((noticia) => {
       const div = document.createElement("div")
       div.className =
@@ -89,28 +93,32 @@ document.addEventListener('DOMContentLoaded', function () {
         <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">${noticia.titulo}</h3>
         <p class="text-gray-600 mb-4 line-clamp-3">${noticia.descripcion}</p>
         <div class="flex justify-between items-center">
-          <a href="../templates/noticias/ver-${noticia.id}.html" class="text-blue-600 hover:text-blue-800 font-medium">
+          <a href="./templates/noticias/ver-${noticia.id}.html" class="text-blue-600 hover:text-blue-800 font-medium">
             Leer más <i class="fas fa-arrow-right ml-1"></i>
           </a>
+          ${isAdminView ? `
           <button class="text-red-600 hover:text-red-800 eliminar-btn" data-id="${noticia.id}">
             <i class="fas fa-trash"></i>
           </button>
+          ` : ''}
         </div>
       </div>
     `
       noticiasList.appendChild(div)
     })
 
-    // Agregar eventos a los botones de eliminar
-    document.querySelectorAll(".eliminar-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const id = this.getAttribute("data-id")
-        if (confirm(`¿Está seguro que desea eliminar la noticia #${id}?`)) {
-          alert("Noticia eliminada (simulación)")
-          cargarNoticias(paginaActual)
-        }
+    // Agregar eventos a los botones de eliminar solo en la vista de administrador
+    if (isAdminView) {
+      document.querySelectorAll(".eliminar-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const id = this.getAttribute("data-id")
+          if (confirm(`¿Está seguro que desea eliminar la noticia #${id}?`)) {
+            alert("Noticia eliminada (simulación)")
+            cargarNoticias(paginaActual)
+          }
+        })
       })
-    })
+    }
   }
 
   function renderPaginacion(data) {
