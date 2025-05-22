@@ -5,7 +5,6 @@
 // --- Constantes ---
 const API_URL = "/api/noticias"
 const TEMAS = ["POLITICA", "ECONOMIA", "DEPORTES", "TECNOLOGIA", "CULTURA", "SOCIEDAD", "SALUD"]
-const USIG_API_URL = "https://servicios.usig.buenosaires.gob.ar/normalizar"
 
 // --- Coordenadas por defecto (Buenos Aires) ---
 const DEFAULT_LAT = -34.6037
@@ -63,41 +62,6 @@ function updateMapMarker(map, marker, lat, lng, popupText, zoom = 15) {
   map.invalidateSize()
 
   return marker
-}
-
-/**
- * Normaliza una dirección usando la API de USIG
- * @param {string} direccion - Dirección a normalizar
- * @returns {Promise} - Promesa que resuelve con los datos de la dirección normalizada
- */
-async function normalizarDireccion(direccion) {
-  try {
-    const response = await fetch(
-      `${USIG_API_URL}?direccion=${encodeURIComponent(direccion)}&geocodificar=TRUE&maxOptions=5`,
-    )
-    const data = await response.json()
-
-    if (Array.isArray(data.direccionesNormalizadas) && data.direccionesNormalizadas.length > 0) {
-      const dir = data.direccionesNormalizadas[0]
-      return {
-        success: true,
-        direccion: dir.direccion,
-        latitud: dir.coordenadas.y,
-        longitud: dir.coordenadas.x,
-      }
-    } else {
-      return {
-        success: false,
-        mensaje: "No se pudo normalizar la dirección. Verifique e intente nuevamente.",
-      }
-    }
-  } catch (error) {
-    console.error("Error al normalizar la dirección:", error)
-    return {
-      success: false,
-      mensaje: "Error de conexión al servicio USIG.",
-    }
-  }
 }
 
 /**
@@ -186,7 +150,6 @@ window.NoticiasCommon = {
   DEFAULT_LNG,
   initializeMap,
   updateMapMarker,
-  normalizarDireccion,
   cargarTemasEnSelect,
   mostrarMensaje,
   initAutenticacion,

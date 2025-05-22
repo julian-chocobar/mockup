@@ -1,6 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Importar funciones comunes
-    const { initializeMap, updateMapMarker, normalizarDireccion, TEMAS } = window.NoticiasCommon
+    const { initializeMap, updateMapMarker, TEMAS } = window.NoticiasCommon
+  
+    // Constante para el servicio USIG
+    const USIG_API_URL = "https://servicios.usig.buenosaires.gob.ar/normalizar"
+
+    /**
+     * Normaliza una dirección usando la API de USIG
+     * @param {string} direccion - Dirección a normalizar
+     * @returns {Promise} - Promesa que resuelve con los datos de la dirección normalizada
+     */
+    async function normalizarDireccion(direccion) {
+        try {
+            const response = await fetch(
+                `${USIG_API_URL}?direccion=${encodeURIComponent(direccion)}&geocodificar=TRUE&maxOptions=5`,
+            )
+            const data = await response.json()
+
+            if (Array.isArray(data.direccionesNormalizadas) && data.direccionesNormalizadas.length > 0) {
+                const dir = data.direccionesNormalizadas[0]
+                return {
+                    success: true,
+                    direccion: dir.direccion,
+                    latitud: dir.coordenadas.y,
+                    longitud: dir.coordenadas.x,
+                }
+            } else {
+                return {
+                    success: false,
+                    mensaje: "No se pudo normalizar la dirección. Verifique e intente nuevamente.",
+                }
+            }
+        } catch (error) {
+            console.error("Error al normalizar la dirección:", error)
+            return {
+                success: false,
+                mensaje: "Error de conexión al servicio USIG.",
+            }
+        }
+    }
   
     // Variables globales
     let mapObj = { map: null, marker: null }

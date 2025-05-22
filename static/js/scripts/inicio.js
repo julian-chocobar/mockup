@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
   // Fetch y renderizado de noticias
   async function cargarNoticias(page = 0) {
     try {
+
       const titulo = tituloInput.value
       const tema = temaSelect.value
 
@@ -55,15 +56,17 @@ document.addEventListener('DOMContentLoaded', function () { //Al buscar componen
         noticiasList.innerHTML = ""
         noNoticiasDiv.classList.remove("hidden")
         paginationNav.innerHTML = ""
+
       } else {
         noNoticiasDiv?.classList.add("hidden")
         renderNoticias(mockData.content)
         renderPaginacion(mockData)
       }
+
     } catch (error) {
-      console.error("Error al cargar noticias:", error)
+      //console.error("Error al cargar noticias:", error)
       noticiasList.innerHTML =
-        '<div class="col-span-full text-center p-8 bg-red-50 text-red-600 rounded-lg">Error al cargar noticias. Intente nuevamente más tarde.</div>'
+        '<div class="col-span-full text-center p-8 bg-red-50 text-red-600 rounded-lg">No hay noticias con la búsqueda ingresada.</div>'
     }
   }
 
